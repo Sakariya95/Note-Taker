@@ -1,17 +1,17 @@
+//Dependencies
 const express = require('express');
 const path = require('path');
 const notes = require("./db/db.json");
 const fs = require("fs");
 const uuid = require("uuid");
 
+//set up server
 const PORT = process.env.PORT || 3001;
-
 const app = express();
 
 // Middleware for parsing JSON and urlencoded form data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 app.use(express.static('public'));
 
 // GET Route for notes page
@@ -24,7 +24,7 @@ app.post("/api/notes", (req, res) =>{
     const notes = JSON.parse(fs.readFileSync('./db/db.json'));
     const newNotes = req.body;
     newNotes.id = uuid.v4();
-    api.push(newNotes);
+    notes.push(newNotes);
     fs.writeFileSync("./db/db.json".JSON.stringify(notes));
     res.json(notes)
 });
