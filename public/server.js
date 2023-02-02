@@ -29,3 +29,19 @@ app.post("/api/notes", (req, res) =>{
     fs.writeFileSync("./db/db.json".JSON.stringify(api));
     res.json(api)
 });
+
+
+// HTML calls for homepage
+app.get("/", function(req, res) {
+    res.sendFile(path.join(__dirname, "./public/index.html"))    
+});
+
+// HTML calls for notes page
+app.get("/notes", function(req, res) {
+    res.sendFile(path.join(__dirname, "./public/notes.html"))    
+});
+
+//start listen
+app.listen(PORT, function(){
+    console.log(`App listening at http://localhost:${PORT} 🚀`)
+});
