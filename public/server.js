@@ -19,3 +19,13 @@ app.use(express.static('public'));
 app.get("/api/notes", (req, res) =>
   res.sendFile(path.join(__dirname, './db/db.json'))
 );
+
+// Post function to add new notes to db.json
+app.post("/api/notes", (req, res) =>{ 
+    const api = JSON.parse(fs.readFileSync('./db/db.json'));
+    const newNotes = req.body;
+    newNotes.id = uuid.v4();
+    api.push(newNotes);
+    fs.writeFileSync("./db/db.json".JSON.stringify(api));
+    res.json(api)
+});
