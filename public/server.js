@@ -3,11 +3,11 @@ const express = require('express');
 const path = require('path');
 const notes = require("./db/db.json");
 const fs = require("fs");
-const uuid = require("uuid");
+const uuid = require("./assets/js/uuid");
 
 //set up server
-const PORT = process.env.PORT || 3001;
 const app = express();
+const PORT = process.env.PORT || 3001;
 
 // Middleware for parsing JSON and urlencoded form data
 app.use(express.json());
@@ -39,12 +39,12 @@ app.delete("/api/notes/:id", (req, res) =>{
 
 // HTML calls for homepage
 app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "./public/index.html"))    
+    res.sendFile(path.join(__dirname, "./index.html"))    
 });
 
 // HTML calls for notes page
 app.get("/notes", function(req, res) {
-    res.sendFile(path.join(__dirname, "./public/notes.html"))    
+    res.sendFile(path.join(__dirname, "./notes.html"))    
 });
 
 //start listen
