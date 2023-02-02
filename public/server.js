@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const api = require("./db/db.json");
+const notes = require("./db/db.json");
 const fs = require("fs");
 const uuid = require("uuid");
 
@@ -11,7 +11,6 @@ const app = express();
 // Middleware for parsing JSON and urlencoded form data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/api', api);
 
 app.use(express.static('public'));
 
@@ -22,14 +21,21 @@ app.get("/api/notes", (req, res) =>
 
 // Post function to add new notes to db.json
 app.post("/api/notes", (req, res) =>{ 
-    const api = JSON.parse(fs.readFileSync('./db/db.json'));
+    const notes = JSON.parse(fs.readFileSync('./db/db.json'));
     const newNotes = req.body;
     newNotes.id = uuid.v4();
     api.push(newNotes);
-    fs.writeFileSync("./db/db.json".JSON.stringify(api));
-    res.json(api)
+    fs.writeFileSync("./db/db.json".JSON.stringify(notes));
+    res.json(notes)
 });
 
+//Deleting notes
+app.delete("/api/notes/:id", (req, res) =>{
+    const notes = JSON.parse(fs.readFileSync('./db/db.json'));
+    const delNote = notes.filter((rmvNote) => rmvNote.id !== req.params.id);
+    fs.writeFileSync("./db/db.json".JSON.stringify(delNote));
+    res.json(delNote);
+});
 
 // HTML calls for homepage
 app.get("/", function(req, res) {
