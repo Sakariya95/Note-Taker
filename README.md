@@ -1,8 +1,8 @@
 # Note-Taker
   ## Deployed App
 [  https://.herokuapp.com/](https://note-taker95.herokuapp.com/)
-  ![indexHtml](./public/assets/)
-  ![notesHtml](./public/assets/)
+  ![](./public/assets/screen1.png)
+  ![](./public/assets/screen2.png)
   ## Table of Contents 
   - [Description](#description)
   - [Installation](#installation)
