@@ -1,8 +1,7 @@
 # Note-Taker
   ## Deployed App
 [  https://.herokuapp.com/](https://note-taker-2023challenge11.herokuapp.com/)
-  ![](./public/assets/screen1.png)
-  ![](./public/assets/screen2.png)
+  ![](./public/assets/note.png)
   ## Table of Contents 
   - [Description](#description)
   - [Installation](#installation)
@@ -22,7 +21,7 @@
   ## Testing:
   -
   ## Additional Info:
-  - Github: [Sakariya95](https://github.com/Sakariya95)
+  - Github: [Sakariya95 - Note Taker repo](https://github.com/Sakariya95/Note-Taker)
   ## Questions and Contribution instructions: 
   Please contact this email address if you have any questions about the project or any feedback for improvement thanks.
   - Email: niyyex@live.co.uk
